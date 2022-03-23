@@ -12,32 +12,25 @@ language_translator = LanguageTranslatorV3(
 language_translator.set_service_url('https://api.us-south.language-translator.watson.cloud.ibm.com/instances/647b0c08-1ce1-4f79-93de-4f429afd49c5')
 
 
-#app = Flask("Web Translator")
+def english_to_french(text1):
+    """
+    This function translates english to french
+    """
 
-
-
-#app.route("/englishToFrench")
-
-def english_to_french(text):
     frenchtranslation = language_translator.translate(
-        text=input('Hello, type and I will translate it french?  '),
-        model_id='en-fr').get_result()
+                                text=text1,
+                                model_id='en-fr'
+                            ).get_result()
 
-    print(json.dumps(translation, indent=0, ensure_ascii=False))
-    return frenchtranslation.get(translations)[0].get("translation")
-
-
-#@app.route("/frenchToEnglish")
+    return frenchtranslation.get('translations')[0].get('translation')
 
 def french_to_english(text1):
+    """
+    This function translates french to english
+    """
+
     englishtranslation = language_translator.translate(
-        text1=input('Bonjour, type et je vais le traduire en anglais?  '),
-        model_id='fr-en').get_result()
+                                text=text1, model_id='fr-en'
+                            ).get_result()
 
-    print(json.dumps(translation, indent=0, ensure_ascii=False))
-    return englishtranslation.get(translations)[0].get("translation")
-
-
-
-english_to_french
-french_to_english
+    return englishtranslation.get('translations')[0].get('translation')

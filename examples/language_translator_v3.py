@@ -18,14 +18,14 @@ language_translator.set_service_url('https://api.us-south.language-translator.wa
 translation = language_translator.translate(
     text=input('Hello, type and I will translate it french?  '),
     model_id='en-fr').get_result()
-print(json.dumps(translation, indent=0, ensure_ascii=False))
+print(json.dumps(translation,  ensure_ascii=False))
 
+#print(translation.get({tranlations})[0].get("translation"))
   
 translation = language_translator.translate(
     text=input('Bonjour, type et je vais le traduire en anglais?  '),
     model_id='fr-en').get_result()
-print(json.dumps(translation, indent=0, ensure_ascii=False))
-
+print(translation.get('translations')[0].get('translation'))
 
 
 
@@ -33,4 +33,4 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World!</p>"
+  return "<p>Hello, World!</p>"

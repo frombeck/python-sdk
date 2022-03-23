@@ -1,19 +1,18 @@
-import unitest
+import unittest
 
 from translator import english_to_french, french_to_english
 
-class testsuit:
+class frenchToEnglish(unittest.TestCase): 
+    def test1(self): 
+        self.assertEqual(french_to_english('Bonjour'), 'Hello') # Test for the translation of the word 'Bonjour' into English is equal to 'Hello'
+        self.assertNotEqual(french_to_english('Oui'), 'Oui') # Test for the translation of the world 'Oui' into English is not equal to 'Oui'.
 
-	def test1(self):
-		self.assertEqual(english_to_french('hello','bonjour'))
-		self.assertEqual(english_to_french('red','rogue'))
-		self.assertEqual(english_to_french('',''))
-		self.assertNOTEqual(english_to_french('hello','hello'))
-
-	def test2(self):
-		self.assertEqual(french_to_english('bonjour','hello'))
-		self.assertEqual(french_to_english('rogue','red'))
-		self.assertEqual(french_to_english('',''))
-		self.assertNOTEqual(french_to_english('rogue','rogue'))
+class englishToFrench(unittest.TestCase): 
+    def test1(self): 
+        self.assertEqual(english_to_french('Hello'), 'Bonjour') # Test for the translation of the word 'Hello' into French is equal to 'Bonjour'
+        self.assertNotEqual(english_to_french('Yes'), 'Yes')  # Test for the translation of the world 'Yes' into French is not equal to 'Yes'.
 
 
+
+if __name__ == '__main__':
+     unittest.main()
